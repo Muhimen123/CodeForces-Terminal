@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 # Sending request and geting the source code
@@ -58,6 +59,10 @@ for tag in problem.find_all(['p', 'ul']):
         txt = txt.replace('<span class="tex-font-style-bf">', "")
         txt = txt.replace("</span>", "")
 
+        tags = re.findall('<(.+?)>', str(txt))
+        for tag in tags:
+            txt = txt.replace('<' + tag + '>', "")
+
         output += txt
     
     print(output)
@@ -80,6 +85,9 @@ for tag in inputs.find_all(['p', 'ul']):
         txt = txt.replace('<span class="tex-font-style-tt">', "")
         txt = txt.replace('<span class="tex-font-style-bf">', "")
         txt = txt.replace("</span>", "")
+        tags = re.findall('<(.+?)>', str(txt))
+        for tag in tags:
+            txt = txt.replace('<' + tag + '>', "")
 
         output += txt
 
@@ -102,6 +110,10 @@ for tag in outputs.find_all(['p', 'ul']):
         txt = txt.replace('<span class="tex-font-style-tt">', "")
         txt = txt.replace('<span class="tex-font-style-bf">', "")
         txt = txt.replace("</span>", "")
+
+        tags = re.findall('<(.+?)>', str(txt))
+        for tag in tags:
+            txt = txt.replace('<' + tag + '>', "")
 
         output += txt
 
@@ -140,7 +152,10 @@ try:
             txt = txt.replace('<span class="tex-font-style-it">', "")
             txt = txt.replace('<span class="tex-font-style-tt">', "")
             txt = txt.replace('<span class="tex-font-style-bf">', "")
-            txt = txt.replace("</span>", "")
+            
+            tags = re.findall('<(.+?)>', str(txt))
+            for tag in tags:
+                txt = txt.replace('<' + tag + '>', "")
 
             output += txt
         
