@@ -3,3 +3,5 @@ flop.py
 readme.html
 .ipynb_checkpoints
 .ipynb
+CF
+__pycache__
