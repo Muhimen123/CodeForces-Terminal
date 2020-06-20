@@ -24,6 +24,9 @@ while True:
     elif "contest_list" in cmd.lower():
         contests.contest_list(cmd.lower())
 
+    elif 'contest_problems' in cmd.lower():
+        contests.contest_problems()
+
         # not Connected
         # - contest_standings => *
         # - contest_ratings_changes => *
@@ -39,3 +42,4 @@ while True:
 
     else:
         print(colorama.Fore.RED + "No such command found. Pleas try" + colorama.Fore.GREEN + " Help " + colorama.Fore.RED + "to see the availabe list of commands" + colorama.Fore.RESET)
+
