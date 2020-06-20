@@ -15,10 +15,19 @@ while True:
     elif 'show_problem' in cmd.lower():
         qus_reader.read_prompts()
 
+        # not connected
+        # - problemsets
+        # - sort_problem
+
     # Contest command section
 
     elif "contest_list" in cmd.lower():
         contests.contest_list(cmd.lower())
+
+        # not Connected
+        # - contest_standings => *
+        # - contest_ratings_changes => *
+        # - contest_problems => ***
 
     # Basics command section
 
@@ -27,7 +36,6 @@ while True:
 
     elif 'help' in cmd.lower():
         helps.show_help()
-
 
     else:
         print(colorama.Fore.RED + "No such command found. Pleas try" + colorama.Fore.GREEN + " Help " + colorama.Fore.RED + "to see the availabe list of commands" + colorama.Fore.RESET)
