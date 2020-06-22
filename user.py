@@ -114,5 +114,3 @@ def get_user_info():
             print("Registered: "  + registration)
     except:
         error_msg.error()
-
-get_user_info()

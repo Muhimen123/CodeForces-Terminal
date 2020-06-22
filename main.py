@@ -1,6 +1,7 @@
 import qus_reader
 import contests
 import helps
+import user
 import colorama
 
 
@@ -9,7 +10,7 @@ while True:
 
     # No section
     if 'user_info' in cmd.lower():
-        print("This feature isn't available yet. 😟")
+        user.get_user_info()
 
     # problems command section
     elif 'show_problem' in cmd.lower():
