@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 from questions import con_questions
 import error_msg
 
+colorama.init()
+
 def contest_list(raw_cmd, adv=False):
     colorama.init()
     URL = 'https://codeforces.com/api/contest.list?'
@@ -222,37 +224,41 @@ def contest_ratings_change(raw_cmd, adv=False):
 
 
 def contest_problems():
-    contest_id = input(colorama.Fore.BLUE + "Enter the contest id: " + colorama.Fore.RESET)
+    print(f'{colorama.Fore.BLUE}Enter the contest id: {colorama.Fore.RESET}', end="")
+    contest_id = input()
     URL = f'https://codeforces.com/api/contest.standings?contestId={contest_id}&from=1&count=1&showUnofficial=true'
+    try:
+        res  = requests.get(URL)
+        if res.status_code != 200:
+            print(colorama.Fore.RED + "Sorry, we recieved a " + colorama.Fore.RESET, end='')
+            print(f"{colorama.Back.RED}{colorama.Fore.WHITE} {res.status_code} {colorama.Style.RESET_ALL}", end='')
+            print(colorama.Fore.RED, "response code from CODEFORCES. 😟", colorama.Fore.RESET)
+        else:
+            data = json.loads(res.text)
+            problems = data['result']['problems']
+            header = ['Index', 'Name', 'Tags', 'Points']
+            rows = []
+            for i in range(len(problems)):
+                idx = problems[i]['index']
+                name = problems[i]['name']
+                tags = problems[i]['tags']
 
-    res  = requests.get(URL)
-    if res.status_code != 200:
-        print(colorama.Fore.RED + "Sorry, we recieved a " + colorama.Fore.RESET, end='')
-        print(f"{colorama.Back.RED}{colorama.Fore.WHITE} {res.status_code} {colorama.Style.RESET_ALL}", end='')
-        print(colorama.Fore.RED, "response code from CODEFORCES. 😟", colorama.Fore.RESET)
-    else:
-        data = json.loads(res.text)
-        problems = data['result']['problems']
-        header = ['Index', 'Name', 'Tags', 'Points']
-        rows = []
-        for i in range(len(problems)):
-            idx = problems[i]['index']
-            name = problems[i]['name']
-            tags = problems[i]['tags']
+                try:
+                    points = problems[i]['points']
+                except:
+                    points = colorama.Fore.RED + 'NaN' + colorama.Fore.RESET + colorama.Fore.LIGHTBLUE_EX
 
-            try:
-                points = problems[i]['points']
-            except:
-                points = colorama.Fore.RED + 'NaN' + colorama.Fore.RESET + colorama.Fore.LIGHTBLUE_EX
+                if len(tags) > 3:
+                    tags = tags[:3]
+                    tags.append('...')
 
-            if len(tags) > 3:
-                tags = tags[:3]
-                tags.append('...')
+                rows.append([idx, name, tags, points])
 
-            rows.append([idx, name, tags, points])
+            table = tabulate(rows, headers=header, tablefmt='github')
 
-        table = tabulate(rows, headers=header, tablefmt='github')
+            print(colorama.Fore.LIGHTBLUE_EX)
+            print(table)
+            print(colorama.Fore.RESET)
 
-        print(colorama.Fore.LIGHTBLUE_EX)
-        print(table)
-        print(colorama.Fore.RESET)
+    except:
+        error_msg.error()
