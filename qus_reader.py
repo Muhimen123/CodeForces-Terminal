@@ -54,6 +54,7 @@ def read_prompts():
                 txt= str(txt)
 
                 # string formatting
+                txt = txt.replace("<br>", '\n')
                 txt = txt.replace("$", "").replace("\dots", "...").replace("       ", " ").replace("   ", " ")
                 txt = txt.replace("\\le", "<=").replace("\\l", "<").replace("\\ge", ">=").replace("\\g", ">")
                 txt = txt.replace("\\cdot", ".").replace("<li>", "").replace("</li>", "\n\n")
@@ -81,6 +82,7 @@ def read_prompts():
                 txt= str(txt)
 
                 # string formatting
+                txt = txt.replace("<br>", '\n')
                 txt = txt.replace("$", "").replace("\dots", "...").replace("       ", " ").replace("   ", " ")
                 txt = txt.replace("\\le", "<=").replace("\\l", "<").replace("\\ge", ">=").replace("\\g", ">")
                 txt = txt.replace("\\cdot", ".").replace("<li>", "").replace("</li>", "\n\n")
@@ -106,6 +108,7 @@ def read_prompts():
                 txt= str(txt)
 
                 # string formatting
+                txt = txt.replace("<br>", '\n')
                 txt = txt.replace("$", "").replace("\dots", "...").replace("       ", " ").replace("   ", " ")
                 txt = txt.replace("\\le", "<=").replace("\\l", "<").replace("\\ge", ">=").replace("\\g", ">")
                 txt = txt.replace("\\cdot", ".").replace("<li>", "*").replace("</li>", "\n\n")
@@ -131,7 +134,7 @@ def read_prompts():
         for i in range(len(sample_inputs)):
             print('=================')
             print("SampleInput ==>")
-            print(sample_inputs[i].pre.text)
+            print((sample_inputs[i].pre.text))
             print("SampleOutput ==>")
             print(sample_outputs[i].pre.text)
             print()
@@ -149,6 +152,7 @@ def read_prompts():
                     txt= str(txt)
 
                     # string formatting
+                    txt = txt.replace("<br>", '\n')
                     txt = txt.replace("$", "").replace("\dots", "...").replace("       ", " ").replace("   ", " ")
                     txt = txt.replace("\\le", "<=").replace("\\l", "<").replace("\\ge", ">=").replace("\\g", ">")
                     txt = txt.replace("\\cdot", ".").replace("<li>", "").replace("</li>", "\n\n")
