@@ -28,10 +28,12 @@ while True:
     elif 'contest_problems' in cmd.lower():
         contests.contest_problems()
 
+    elif 'contest_standings' in cmd.lower():
+        contests.contest_standings(cmd.lower())
+
         # not Connected
         # - contest_standings => *
         # - contest_ratings_changes => *
-        # - contest_problems => ***
 
     # Basics command section
 
