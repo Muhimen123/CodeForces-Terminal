@@ -216,12 +216,11 @@ def contest_list(raw_cmd, adv=False):
 
 
 def contest_standings(raw_cmd, adv=False):
-    if 'true' in raw_cmd:
-        pass
-    else:
+
+    def standings(start=1, count=20, unofficial=True):
         print(colorama.Fore.BLUE + "Enter the contest id: " + colorama.Fore.RESET, end="")
         contest_id = input()
-        URL = f'https://codeforces.com/api/contest.standings?contestId={contest_id}&from=1&count=20&showUnofficial=true'
+        URL = f'https://codeforces.com/api/contest.standings?contestId={contest_id}&from={start}&count={count}&showUnofficial={unofficial}'
         try:
             response = requests.get(URL)
             if response.status_code != 200:
@@ -270,6 +269,13 @@ def contest_standings(raw_cmd, adv=False):
 
         except Exception as error:
             print(error)
+
+    if 'true' in raw_cmd:
+        answers = con_questions.contest_standing_qus()
+        standings(start=answers['start'], count=answers['count'], unofficial=answers['unofficial'])
+
+    else:
+        standings()
 
 
 def contest_ratings_change(raw_cmd, adv=False):
