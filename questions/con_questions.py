@@ -46,3 +46,28 @@ def contest_phase_qus():
 
     answers = prompt(question)
     return answers
+
+def contest_standing_qus():
+    question = [
+        {
+            'type': 'input',
+            'name': 'count',
+            'message': 'How many rows do you want to see? ',
+            'default': '20'
+        },
+        {
+            'type': 'input',
+            'name': 'start',
+            'message': 'What will be the initial starting point? ',
+            'default': '1'
+        },
+        {
+            'type': 'list',
+            'name': 'unofficial',
+            'message': 'Do you want unofficial standings?',
+            'choices': ['True', 'False']
+        }
+    ]
+
+    answers = prompt(question)
+    return answers
