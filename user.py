@@ -161,7 +161,17 @@ def user_subs(raw_cmd):
             raise error
 
     if 'true' in raw_cmd:
-        pass
+        print(colorama.Fore.BLUE + "Enter a valid user handle: " + colorama.Fore.RESET, end="")
+        user_handle = input()
+
+        print(colorama.Fore.BLUE + "Enter the starting index: " + colorama.Fore.RESET, end="")
+        starting_index = int(input())
+
+        print(colorama.Fore.BLUE + "How many submissions do you want to check? " + colorama.Fore.RESET, end="")
+        counts = int(input())
+
+        get_sub_history(user_handle, starting_index, counts)
+
     else:
         print(colorama.Fore.BLUE + "Enter a valid user handle: " + colorama.Fore.RESET, end="")
         user_handle = input()
@@ -169,4 +179,4 @@ def user_subs(raw_cmd):
         get_sub_history(user_handle)
 
 
-user_subs('something')
+user_subs('something true')
