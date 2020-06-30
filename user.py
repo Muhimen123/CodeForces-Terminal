@@ -3,6 +3,7 @@ import json
 import colorama
 import error_msg
 from datetime import datetime
+from tabulate import tabulate
 
 
 
@@ -114,3 +115,58 @@ def get_user_info():
             print("Registered: "  + registration)
     except:
         error_msg.error()
+
+def user_subs(raw_cmd):
+    def get_sub_history(handle, start=1, count=5):
+        URL = f'https://codeforces.com/api/user.status?handle={handle}&from={start}&count={count}'
+
+        try:
+            response = requests.get(URL)
+            if response.status_code != 200:
+                print(colorama.Fore.RED + "Sorry, we recieved a " + colorama.Fore.RESET, end='')
+                print(f"{colorama.Back.RED}{colorama.Fore.WHITE} {response.status_code} {colorama.Style.RESET_ALL}", end='')
+                print(colorama.Fore.RED, "response code from CODEFORCES. 😟", colorama.Fore.RESET)
+            
+            else:
+                data = json.loads(response.text)
+                data = data['result']
+
+                table_header = ['Problem Index', 'Problem Name', 'Verdict', 'Time', 'Memory']
+                table_row = []
+
+                idx = 0
+                while idx < len(data) and idx < count:
+                    problem_index = str(data[idx]['problem']['contestId']) + str(data[idx]['problem']['index'])
+                    problem_name = data[idx]['problem']['name']
+                    
+                    try:
+                        verdict = data[idx]['verdict']
+                    except Exception:
+                        verdict = 'None'
+
+                    time = str(data[idx]['timeConsumedMillis']) + ' ms'
+                    memory = str(data[idx]['memoryConsumedBytes'] // 1024) + ' kb'
+
+                    table_row.append([problem_index, problem_name, verdict, time, memory])
+                    idx += 1
+
+                table = tabulate(table_row, headers=table_header, tablefmt='github')
+                print(colorama.Fore.GREEN)
+                print(table)
+                print(colorama.Fore.RESET)
+
+
+        except Exception as error:
+            # error_msg.error()
+            raise error
+
+    if 'true' in raw_cmd:
+        pass
+    else:
+        print(colorama.Fore.BLUE + "Enter a valid user handle: " + colorama.Fore.RESET, end="")
+        user_handle = input()
+
+        get_sub_history(user_handle)
+
+
+user_subs('something')
