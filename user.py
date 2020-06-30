@@ -178,5 +178,3 @@ def user_subs(raw_cmd):
 
         get_sub_history(user_handle)
 
-
-user_subs('something true')
