@@ -7,6 +7,7 @@ no = colorama.Fore.RED + 'Null' + colorama.Fore.RESET
 
 data = [
     ['user_info', 'shows information about the specified user', yes],
+    ['user_subs', 'Returns the list of submissions the user has', yes],
     [' ', ' ', ' '],
     ['show_problem', 'shows the problem statement(problem index needed)', no],
     ['problemset', 'Shows list of top 50 problems from the CF problemsets page', no],
