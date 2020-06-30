@@ -8,11 +8,20 @@ import colorama
 while True:
     cmd = input("|>|> ")
 
-    # No section
+    ##################
+    # No section######
+    ##################
+
     if 'user_info' in cmd.lower():
         user.get_user_info()
 
-    # problems command section
+    elif 'user_subs' in cmd.lower():
+        user.user_subs(cmd.lower())
+
+    ################################
+    # problems command section######
+    ################################
+
     elif 'show_problem' in cmd.lower():
         qus_reader.read_prompts()
 
@@ -20,7 +29,9 @@ while True:
         # - problemsets
         # - sort_problem
 
-    # Contest command section
+    #################################
+    # Contest command section########
+    #################################
 
     elif "contest_list" in cmd.lower():
         contests.contest_list(cmd.lower())
@@ -32,10 +43,12 @@ while True:
         contests.contest_standings(cmd.lower())
 
         # not Connected
-        # - contest_standings => *
         # - contest_ratings_changes => *
 
-    # Basics command section
+
+    ############################
+    # Basics command section####
+    ############################
 
     elif 'exit' in cmd.lower():
         break
