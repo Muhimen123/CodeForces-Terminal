@@ -47,16 +47,7 @@ msg4 = '''
 ╱╱╱╱╱╱╱╰╯
 '''
 
-msg5 = '''
- ____  ____  ____  ____  _ 
-/  _ \/  _ \/  __\/ ___\/ \
-| / \|| / \||  \/||    \| |
-| \_/|| \_/||  __/\___ |\_/
-\____/\____/\_/   \____/(_)
-                           
-'''
-
-all_message = [msg1, msg2, msg3, msg4, msg5]
+all_message = [msg1, msg2, msg3, msg4]
 
 def error():
     print(colorama.Fore.RED)
