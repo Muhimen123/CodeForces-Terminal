@@ -5,3 +5,5 @@ readme.html
 .ipynb
 CF
 __pycache__
+debug.log
+.gitignore
