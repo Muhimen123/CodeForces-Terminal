@@ -3,6 +3,7 @@ import contests
 import helps
 import user
 import colorama
+import sub_sol
 
 
 while True:
@@ -41,6 +42,9 @@ while True:
 
     elif 'contest_standings' in cmd.lower():
         contests.contest_standings(cmd.lower())
+
+    elif 'sub_sol' in cmd.lower():
+        sub_sol.sub_prob()
 
         # not Connected
         # - contest_ratings_changes => *
