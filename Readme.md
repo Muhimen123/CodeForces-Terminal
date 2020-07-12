@@ -2,7 +2,13 @@
 
 Codeforces-terminal is a small attempt to get all the useful feature of [codeforces](www.codeforces.com) to the terminal screen including main features like reading problem statements in the terminal, getting contest informations and many more. 
 
-![main](http://res.cloudinary.com/muhimen/image/upload/v1594524467/CF_TER_main.gif)
+
+░█████╗░███████╗░░░░░░████████╗███████╗██████╗░███╗░░░███╗██╗███╗░░██╗░█████╗░██╗░░░░░
+██╔══██╗██╔════╝░░░░░░╚══██╔══╝██╔════╝██╔══██╗████╗░████║██║████╗░██║██╔══██╗██║░░░░░
+██║░░╚═╝█████╗░░█████╗░░░██║░░░█████╗░░██████╔╝██╔████╔██║██║██╔██╗██║███████║██║░░░░░
+██║░░██╗██╔══╝░░╚════╝░░░██║░░░██╔══╝░░██╔══██╗██║╚██╔╝██║██║██║╚████║██╔══██║██║░░░░░
+╚█████╔╝██║░░░░░░░░░░░░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
+░╚════╝░╚═╝░░░░░░░░░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
 
 ***
 
