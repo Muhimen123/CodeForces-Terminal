@@ -170,5 +170,5 @@ def read_prompts():
                 print()
         except:
             pass
-    except Exception:
+    except Exception as error:
         print(colorama.Fore.RED + "Please check your internet connection and then try" + colorama.Fore.RESET)
