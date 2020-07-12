@@ -278,10 +278,6 @@ def contest_standings(raw_cmd, adv=False):
         standings()
 
 
-def contest_ratings_change(raw_cmd, adv=False):
-    pass
-
-
 def contest_problems():
     print(f'{colorama.Fore.BLUE}Enter the contest id: {colorama.Fore.RESET}', end="")
     contest_id = input()
