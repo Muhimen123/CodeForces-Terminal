@@ -74,4 +74,10 @@ Too see all the available commands, run command `help` once you start the progra
 
 ## Contributions
 
-Feel to free to grab any [issue]() and kill the bugs 🐛 or create your own sweet features. After all this is for the community. Isn't it?
+Feel to free to grab any [issue](https://github.com/Muhimen123/CodeForces-Terminal/issues) and kill the bugs 🐛 or create your own sweet features. After all this is for the community. Isn't it?
+
+Don't worry if you don't know **Python**. You still can contribute by creating useful issues just like
+
+- Bug report
+- Crash report
+- Feature request
