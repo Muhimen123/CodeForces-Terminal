@@ -21,7 +21,7 @@ I don't know why on the earth you will want to use codeforces on the terminal, b
 
 This program needs several modules to work properly. Check the [requirements.txt](#) file for detailed information. You can install the modules manually. I reccomend you to use the following command to install all the dependencies properly.
 
-First clone this repository in your local machine.
+First clone this repository in your local machine. Or download the zip file and extract it.
 
 ```
 git clone https://github.com/Muhimen123/CodeForces-Terminal.git
