@@ -10,8 +10,6 @@ data = [
     ['user_subs', 'Returns the list of submissions the user has', yes],
     [' ', ' ', ' '],
     ['show_problem', 'shows the problem statement(problem index needed)', no],
-    ['problemset', 'Shows list of top 50 problems from the CF problemsets page', no],
-    ['sort_problem', 'Sorts problem and output list of 30 problems', no],
     ['sub_sol', 'Submit a problem solution via command line', no],
     [' ', ' ', ' '],
     ['contest_list', 'Shows the information of 10 latest contests', yes],
